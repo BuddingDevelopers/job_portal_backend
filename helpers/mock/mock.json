@@ -56,6 +56,7 @@
             "maxSalary": "500000",
             "experience": "2",
             "qualification": "BE",
+            "interviewType": "walkin",
             "skills": ["Android", "Ionic", "React"]
         },
         {
@@ -67,6 +68,7 @@
             "maxSalary": "500000",
             "experience": "2",
             "qualification": "BE",
+            "interviewType": "walkin",
             "skills": ["ios", "Ionic", "React"]
         },
         {
@@ -78,6 +80,7 @@
             "maxSalary": "500000",
             "experience": "2",
             "qualification": "BE",
+            "interviewType": "telephonic",
             "skills": ["Java", "Ionic", "React"]
         },
         {
@@ -89,6 +92,7 @@
             "maxSalary": "500000",
             "experience": "2",
             "qualification": "BE",
+            "interviewType": "telephonic",
             "skills": ["Html", "css", "Ionic", "React"]
         },
         {
@@ -100,6 +104,7 @@
             "maxSalary": "500000",
             "experience": "2",
             "qualification": "BE",
+            "interviewType": "telephonic",
             "skills": ["React", "React-Native"]
         }
     ]

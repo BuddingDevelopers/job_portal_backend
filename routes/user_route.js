@@ -121,4 +121,17 @@ router.post("/educationDetails", (request, response) =>{
     });
 });
 
+router.post("/getUsers", (request, response) =>{
+    if(!request.body){
+        EventHandler.handleError(response, "Incomplete input parameters");
+    }
+    let params = request.body;
+    let query = {role : params.role};
+
+    User.find(query, "_id firstName lastName email", (error, users)=>{
+        if(error) EventHandler.handleError(response, error);
+        EventHandler.sendSuccessWithData(response, "User details based on role retrieved successfully", users);
+    });
+});
+
 module.exports = router;

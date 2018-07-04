@@ -17,7 +17,26 @@ function connectDB(){
 }
 
 function insertMocks(){
-    insertUserData();
+    //insertUserData();
+    insertJobPosts();
+}
+
+function insertJobPosts(){
+    let userIds = {
+        "manager" : "5b3ca057e553200dc885f36c",
+        "interviewer" : "5b3ca057e553200dc885f36e",
+        "hr": "5b3ca057e553200dc885f36d"
+    }
+    mockData.jobpost.map((post, idx) => {
+        post.creatorId = userIds.manager;
+        post.interviewerIds = [userIds.interviewer];
+        post.assignedHRId = userIds.hr;
+        let jobPost = new JobPost(post);
+        jobPost.save((err, jobMod) => {
+            if(err) console.log("error while inserting ", post.jobCode);
+            console.log("inserted ", post.jobCode);
+        });
+    });
 }
 
 function insertUserData(){

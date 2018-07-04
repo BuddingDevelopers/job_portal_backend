@@ -63,6 +63,30 @@ route.post("/publishJob", (request, response) => {
     });
 });
 
+route.get("/getRecentPosts", (request, response) => {
+    if(!request.body){
+        EventHandler.handleError(response, "Incomplete input parameters");
+    }
+
+    let params = request.body;
+    let query = {};
+    let role = params.role.toLowerCase();
+    if(role === "hr"){
+        query = {assignedHRId : params.userId};
+    } else if(role === "manager"){
+        query = {creatorId : params.userId};
+    } else if(role === "interviewer"){
+        query = {interviewerIds : params.userId};
+    }else {
+        query = {isApproved : true};
+    }
+
+    JobPost.find(query, null, {sort : {updatedDate: -1}, limit: 5}, (error, jobPosts) => {
+        if(error) EventHandler.handleError(response, error);
+        EventHandler.sendSuccessWithData(response, "Recent Jobs retrieved successfully", jobPosts);
+    });
+});
+
 route.post("/search", (request, response) => {
     if(!request.body){
         EventHandler.handleError(response, "Incomplete input parameters");

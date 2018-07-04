@@ -19,7 +19,7 @@ route.post("/", (request, response) => {
         password: params.password
     };
 
-    User.findOne(condition, (error, user) => {
+    User.findOne(condition, "-password", (error, user) => {
         if(error) EventHandler.handleError(response, error);
 
         if(user !== null){
