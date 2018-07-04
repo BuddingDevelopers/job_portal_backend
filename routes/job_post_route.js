@@ -63,6 +63,17 @@ route.post("/publishJob", (request, response) => {
     });
 });
 
+route.post("/search", (request, response) => {
+    if(!request.body){
+        EventHandler.handleError(response, "Incomplete input parameters");
+    }
+
+    JobPost.find({$text: {$search: request.body.searchTerm}}, null, {sort : {updatedDate: -1}}, (error, jobPosts) => {
+        if(error) EventHandler.handleError(response, error);
+        EventHandler.sendSuccessWithData(response, "Job search retrieved successfully", jobPosts);
+    });
+});
+
 route.post("/getJobPosts", (request, response) => {
     if(!request.body){
         EventHandler.handleError(response, "Incomplete input parameters");
