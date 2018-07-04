@@ -9,12 +9,32 @@ let jobPostSchema = new mongoose.Schema({
     maxSalary: String,
     experience: String,
     qualification: String,
-    interviewerIds: Array,
-    creatorId: String,
+    skills: [{
+        type: String
+    }],
+    interviewerIds: [
+        {
+            type : mongoose.Schema.Types.ObjectId, 
+            ref:"users"
+        }
+    ],
+    creatorId: {
+        type : mongoose.Schema.Types.ObjectId, 
+        ref:"users"
+    },
     interviewType: String,
-    assignedHRId: String,
-    isApproved: Boolean,
-    createdDate: Date
+    assignedHR: {
+        type : mongoose.Schema.Types.ObjectId, 
+        ref:"users"
+    },
+    isApproved: {
+        type: Boolean,
+        default: false
+    },
+    updatedDate: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 let User = mongoose.model("job_posts", jobPostSchema);

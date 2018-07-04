@@ -7,7 +7,11 @@ let userSchema = new mongoose.Schema({
     phone: String,
     altPhone: String,
     password: String,
-    role: String,
+    role: {
+        type : String,
+        default : "candidate",
+        enum : ["candidate", "manager", "hr", "interviewer"]
+    },
     isVerified: Boolean,
     isActive: Boolean,
     profile : {
@@ -21,6 +25,10 @@ let userSchema = new mongoose.Schema({
         skills: Array,
         experienceDetails : String,
         educationDetails: String
+    },
+    createdDate: {
+        type: Date,
+        default: Date.now
     }
 });
 

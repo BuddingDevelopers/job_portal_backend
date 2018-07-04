@@ -1,0 +1,106 @@
+{
+    "users" : [
+        {
+            "firstName": "Muthu",
+            "lastName": "C",
+            "email": "m@v.com",
+            "phone": "0000000000",
+            "altPhone": "",
+            "password": "m123",
+            "role": "manager"
+        },
+        {
+            "firstName": "Richard",
+            "lastName": "J",
+            "email": "r@v.com",
+            "phone": "0000000000",
+            "altPhone": "",
+            "password": "r123",
+            "role": "hr"
+        },
+        {
+            "firstName": "Rajesh",
+            "lastName": "P",
+            "email": "rp@v.com",
+            "phone": "0000000000",
+            "altPhone": "",
+            "password": "rp123",
+            "role": "interviewer"
+        },
+        {
+            "firstName": "Biswajeet",
+            "lastName": "N",
+            "email": "b@v.com",
+            "phone": "0000000000",
+            "altPhone": "",
+            "password": "b123",
+            "role": "candidate"
+        },
+        {
+            "firstName": "Prakash",
+            "lastName": "NG",
+            "email": "p@v.com",
+            "phone": "0000000000",
+            "altPhone": "",
+            "password": "p123",
+            "role": "candidate"
+        }
+    ],
+    "jobpost" : [
+        {
+            "jobTitle": "Sr. Android Devloper",
+            "jobCode": "Job001",
+            "band": "Analyst",
+            "jobDescription": "Develop android applications",
+            "minSalary": "400000",
+            "maxSalary": "500000",
+            "experience": "2",
+            "qualification": "BE",
+            "skills": ["Android", "Ionic", "React"]
+        },
+        {
+            "jobTitle": "Ios Devloper",
+            "jobCode": "Job002",
+            "band": "Analyst",
+            "jobDescription": "Develop applications",
+            "minSalary": "400000",
+            "maxSalary": "500000",
+            "experience": "2",
+            "qualification": "BE",
+            "skills": ["ios", "Ionic", "React"]
+        },
+        {
+            "jobTitle": "Sr. Java Devloper",
+            "jobCode": "Job003",
+            "band": "sr. Analyst",
+            "jobDescription": "Develop java applications",
+            "minSalary": "400000",
+            "maxSalary": "500000",
+            "experience": "2",
+            "qualification": "BE",
+            "skills": ["Java", "Ionic", "React"]
+        },
+        {
+            "jobTitle": "Sr. Devloper",
+            "jobCode": "Job004",
+            "band": "Analyst",
+            "jobDescription": "Develop web applications",
+            "minSalary": "400000",
+            "maxSalary": "500000",
+            "experience": "2",
+            "qualification": "BE",
+            "skills": ["Html", "css", "Ionic", "React"]
+        },
+        {
+            "jobTitle": "Sr. Devloper",
+            "jobCode": "Job005",
+            "band": "Analyst",
+            "jobDescription": "Develop react applications",
+            "minSalary": "400000",
+            "maxSalary": "500000",
+            "experience": "2",
+            "qualification": "BE",
+            "skills": ["React", "React-Native"]
+        }
+    ]
+}

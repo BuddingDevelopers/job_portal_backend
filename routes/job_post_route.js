@@ -38,9 +38,8 @@ route.post("/", (request, response) => {
             interviewerIds: params.interviewerIds,
             creatorId: params.creatorId,
             interviewType: params.interviewType,
-            assignedHRId: params.assignedHRId,
-            isApproved: false,
-            createdData: Date.now()
+            assignedHR: params.assignedHRId,
+            isApproved: false
         });
 
         jobPost.save((error) => {
@@ -51,14 +50,14 @@ route.post("/", (request, response) => {
 
 });
 
-route.post("/", (request, response) => {
+route.post("/publishJob", (request, response) => {
     if(!request.body){
         EventHandler.handleError(response, "Incomplete input parameters");
     }
 
     let params = request.body;
 
-    JobPost.updateOne({_id: params.jobId}, {isApproved : true}, (error)=>{
+    JobPost.updateOne({_id: params.jobId}, {isApproved : true, updatedDate: Date.now()}, (error)=>{
         if(error) EventHandler.handleError(response, error);
         EventHandler.sendSuccess(response, "Job published successfully");
     });
@@ -82,7 +81,7 @@ route.post("/getJobPosts", (request, response) => {
         query = {isApproved : true};
     }
 
-    JobPost.find(query, (error, jobPosts) => {
+    JobPost.find(query, null, {sort: {updatedDate: -1}}, (error, jobPosts) => {
         if(error) EventHandler.handleError(response, error);
         EventHandler.sendSuccessWithData(response, "Job post retrieved successfully", jobPosts);
     });
